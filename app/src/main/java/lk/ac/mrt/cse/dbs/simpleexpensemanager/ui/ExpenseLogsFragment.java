@@ -18,6 +18,7 @@ package lk.ac.mrt.cse.dbs.simpleexpensemanager.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,6 +74,11 @@ public class ExpenseLogsFragment extends Fragment {
             TextView lDateVal = new TextView(rootView.getContext());
 
             SimpleDateFormat sdf = new SimpleDateFormat(getActivity().getString(R.string.config_date_log_pattern));
+            if(transaction.getDate()!=null){
+                Log.e("Obvious","over");
+            }else{
+                Log.e("NOTOBVIOUS","OVER");
+            }
             String formattedDate = sdf.format(transaction.getDate());
             lDateVal.setText(formattedDate);
             tr.addView(lDateVal);
